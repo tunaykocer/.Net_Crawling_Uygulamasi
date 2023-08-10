@@ -9,13 +9,13 @@ namespace tunay_crawling
     public class Ilan
     {
 
-        public string Name { get; set; }
-        public double Price { get; set; }
+        public string IlanAdii { get; set; }
+        public double Fiyat { get; set; }
 
-        public Ilan(string name, double price)
+        public Ilan(string ilanadii, double fiyat)
         {
-            Name = name;
-            Price = price;
+            IlanAdii = ilanadii;
+            Fiyat = fiyat;
         }
     }
 

@@ -19,7 +19,7 @@ namespace tunay_crawling
         {
             // Arabam.com'dan ilan URL'lerini al
             List<string> ilanUrls = await Class1.GetIlanUrlsAsync();
-            Console.WriteLine("https://www.arabam.com Vitrin Bolumu ilan bilgileri getiriliyor");
+            Console.WriteLine("https://www.arabam.com/ Vitrin Bolumu ilan bilgileri getiriliyor");
             Console.Write("Yukleniyor");
 
             for (int i = 0; i < 10; i++)
@@ -37,17 +37,18 @@ namespace tunay_crawling
 
             foreach (string url in ilanUrls)
             {
-                List<Ilan> ilanList = await Class2.GetIlanAsync("https://www.arabam.com" + url);
+                List<Ilan> ilanList = await Class2.GetIlanAsync("https://www.arabam.com/" + url);
                 ilanlar.AddRange(ilanList);
             }
-            // İlanlar listesi doluysa ortalama fiyatı ve toplam fiyatı hesapla ve ekrana yazdır
 
+            // İlan listeslerinin tamamı listelenirse ortalama  ve toplam fiyatı ekrana yazdırma islemi
             if (ilanlar.Count > 0)
             {
-                double totalPrice = ilanlar.Sum(ilan => ilan.Price);
+                double totalPrice = ilanlar.Sum(ilan => ilan.Fiyat);
                 double averagePrice = totalPrice / ilanlar.Count;
                 Console.WriteLine("Average Price: " + averagePrice.ToString("#.###"));
                 Console.WriteLine("Total Prices: " + totalPrice.ToString("#.###"));
+                Console.ReadKey();
             }
         }
     }

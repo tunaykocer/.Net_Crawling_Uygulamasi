@@ -22,59 +22,60 @@ namespace tunay_crawling
 
             List<Ilan> ilanlar = new List<Ilan>();
 
-            // Web sayfasından gelen HTML dokümanı üzerinde XPath ile belirtilen elemanları seçiyoruz
+            // Web sayfasında XPath ile belirtilen elemanları seçme işlemi yapıyorum.
 
-            var ads = doc.DocumentNode.SelectNodes("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]");
+            var vtrn = doc.DocumentNode.SelectNodes("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]");
 
-            // StreamWriter nesnesi tanımlanıyor
+            // StreamWriter nesnesi tanımlıyorum ve ilanlar.txt adlı dosyaya konsoldaki veriler kaydediliyor.
             using (StreamWriter outputFile = new StreamWriter("ilanlar.txt", true))
             {
                 // Seçilen her bir ilan için aşağıdaki işlemler yapılıyor
-
-                foreach (var adss in ads)
+                if (vtrn != null)
                 {
-                    // İlanın ismi seçiliyor ve yazdırılıyor
-
-                    var name = adss.ParentNode.SelectSingleNode("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]/p");
-                    if (name != null)
+                    foreach (var vitrin in vtrn)
                     {
-                        string ilanName = name.InnerText.TrimEnd('.', ' ', '\n', '\r', '\t', '\0');
-                        Console.WriteLine("Name: " + ilanName);
-                        outputFile.WriteLine("Name: " + ilanName);
-                    }
+                        // İlanın ismi seçiliyor ve yazdırılıyor
 
-                    // İlanın fiyatı seçiliyor ve yazdırılıyor
-
-                    var price = adss.ParentNode.SelectSingleNode("//*[@id=\"js-hook-for-observer-detail\"]/div[2]/div[1]/div/div/text()");
-                    if (price != null)
-                    {
-                        string priceText = price.InnerText.Trim().Replace("TL", "").Replace(".", "");
-                        priceText = priceText.Replace(".", ""); // Nokta karakterini kaldır
-
-                        // İlan fiyatı sayısal bir değere dönüştürülüyor ve yazdırılıyor
-
-                        double ilanPrice;
-                        if (double.TryParse(priceText, NumberStyles.Float, CultureInfo.InvariantCulture, out ilanPrice))
+                        var name = vitrin.ParentNode.SelectSingleNode("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]/p");
+                        if (name != null)
                         {
-                            Console.WriteLine("Price: " + ilanPrice.ToString("#.###"));
-                            outputFile.WriteLine("Price: " + ilanPrice.ToString("#.###"));
-                            string ilanName = Regex.Replace(name.InnerText, @"[\n\r\t]+", "").TrimEnd('.', ' ');
-                            ilanlar.Add(new Ilan(ilanName, ilanPrice));
+                            string ilanName = name.InnerText.TrimEnd('.', ' ', '\n', '\r', '\t', '\0');
+                            Console.WriteLine("İlanAdı: " + ilanName);
+                            outputFile.WriteLine("İlan Adı: " + ilanName);
+                        }
 
-                        }
-                        else
+                        // İlanın fiyatı seçiliyor ve yazdırılıyor
+                        var fiyatt = vitrin.ParentNode.SelectSingleNode("//*[@id=\"js-hook-for-observer-detail\"]/div[2]/div[1]/div/div/text()");
+                        if (fiyatt != null)
                         {
-                            Console.WriteLine("Invalid price format for: " + priceText);
+                            string fiyatBilgi = fiyatt.InnerText.Trim().Replace("TL", "").Replace(".", "");
+                            fiyatBilgi = fiyatBilgi.Replace(".", ""); // Nokta karakterini kaldır
+
+
+                            // İlandaki fiyatı yazdırma islemi
+                            double ilanFiyati;
+                            if (double.TryParse(fiyatBilgi, NumberStyles.Float, CultureInfo.InvariantCulture, out ilanFiyati))
+                            {
+                                Console.WriteLine("Price: " + ilanFiyati.ToString("#.###"));
+                                outputFile.WriteLine("Price: " + ilanFiyati.ToString("#.###"));
+                                string ilanName = Regex.Replace(name.InnerText, @"[\n\r\t]+", "").TrimEnd('.', ' ');
+                                ilanlar.Add(new Ilan(ilanName, ilanFiyati));
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Sayılmayanlar: " + fiyatBilgi);
+                            }
                         }
+                        Console.WriteLine("---------------------------------------------------");
                     }
-                    Console.WriteLine("=======================================================================");
+                    // StreamWriter nesnesi kapatılıyor
+                    outputFile.Close();
                 }
-                // StreamWriter nesnesi kapatılıyor
-                outputFile.Close();
+
+                return ilanlar;
             }
 
-            return ilanlar;
         }
-
     }
 }

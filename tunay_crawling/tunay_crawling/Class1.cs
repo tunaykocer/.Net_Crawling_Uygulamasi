@@ -13,7 +13,7 @@ namespace tunay_crawling
         public static async Task<List<string>> GetIlanUrlsAsync()
         {
             HtmlWeb web = new HtmlWeb();
-            int maxRetries = 3; // İsteği en fazla 3 kez tekrar deneyecek
+            int maxRetries = 5; // İsteği en fazla 5 kez tekrar deneyecek
             int retryCount = 0;// Şu ana kadar yapılan deneme sayısı
             while (retryCount < maxRetries)
             {
@@ -38,15 +38,15 @@ namespace tunay_crawling
 
                     return ilanUrls;
                 }
-                catch (Exception ex)
+                catch (Exception except)
                 {
                     // Hata mesajı yazdırılıyor
 
-                    Console.WriteLine($"Web isteği sırasında hata oluştu: {ex.Message}");
+                    Console.WriteLine($"Hata oluştu: {except.Message}");
 
                     // Yeniden deneme yapılacağına dair mesaj yazdırılıyor
 
-                    Console.WriteLine($"Yeniden deneme yapılıyor ({retryCount + 1}/{maxRetries})...");
+                    Console.WriteLine($"Tekrar ({retryCount + 1}/{maxRetries})...");
 
                     // Deneme sayısı arttırılıyor
 
@@ -59,7 +59,7 @@ namespace tunay_crawling
             }
             // İstenilen sayıda tekrar denemeden sonra bile başarısızlık yaşanırsa bir Exception fırlatılıyor.
 
-            throw new Exception($"Web isteği {maxRetries} kez denendi fakat başarısız oldu.");
+            throw new Exception($"Web isteği {maxRetries} defa başarılamadı");
         }
     }
 }
