@@ -1,4 +1,0 @@
-Analiz :  Biraz araştırma yaparak projeye başladım . Araştırmamda kullanılacak kütüphanelere ve nesnelere bakıp projeye başlamak için hazırlıkları yaptım.
-
-Kodlama ve Test : Gerekli kodlamalarımı yaptıktan sonra projeyi bir çok defa çalıştırarak test ettim . 
-
