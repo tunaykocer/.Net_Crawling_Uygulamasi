@@ -9,19 +9,22 @@ using crawlingapp_tk.Classes;
 
 namespace crawlingapp_tk.Classes
 {
-    public class SahibindenScrapper
+    public class Class1
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl;
 
-        public SahibindenScrapper(HttpClient httpClient, string baseUrl)
+        public Class1(HttpClient httpClient, string baseUrl)
         {
+            // HttpClient ve baseUrl parametreleri sınıfın özelliklerine atanıyor.
             _httpClient = httpClient;
-            _baseUrl = baseUrl;
+            _baseUrl = baseUrl;        
         }
 
         public List<Ilan> GetIlanlar(string html)
         {
+            // HTML içeriğinden ilanları çekmek için kullanılan metod.
+            // İçeriğe göre ilanların detay URL'leri oluşturulup bir liste olarak döndürülüyor.
             var ilanlarList = new List<Ilan>();
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
@@ -39,6 +42,8 @@ namespace crawlingapp_tk.Classes
 
         public void GetIlanDetay(string ilanHtml, Ilan ilan)
         {
+            // İlan detaylarını çekmek için kullanılan metod.
+            // İlan HTML içeriğindeki ilan başlığı ve fiyatı ilan nesnesine atanıyor.
             var ilanDoc = new HtmlDocument();
             ilanDoc.LoadHtml(ilanHtml);
 
@@ -48,17 +53,22 @@ namespace crawlingapp_tk.Classes
 
         public void DisplayIlanlar(List<Ilan> ilanlarList)
         {
+            // İlanları ekrana yazdırmak için kullanılan metod.
+            // İlan başlıkları ve fiyatları liste üzerinde dolaşarak ekrana yazdırılıyor.
             Console.WriteLine("Ilanlar:");
             foreach (var ilan in ilanlarList)
             {
                 Console.WriteLine($"Ilan Baslik: {ilan.Baslik}");
                 Console.WriteLine($"Ilan Fiyat: {ilan.Fiyat}");
+                Console.Write("-----------------------------");
                 Console.WriteLine(new string('-', 30));
             }
         }
 
         public void DisplayOrtalamaFiyat(List<Ilan> ilanlarList)
         {
+            // İlanların ortalama fiyatını hesaplamak ve ekrana yazdırmak için kullanılan metod.
+            // İlan fiyatları toplanıp ortalama hesaplanarak ekrana yazdırılıyor.
             decimal toplamFiyat = 0;
             foreach (var ilan in ilanlarList)
             {
@@ -68,7 +78,7 @@ namespace crawlingapp_tk.Classes
 
             decimal ortalamaFiyat = toplamFiyat / ilanlarList.Count;
 
-            Console.WriteLine($"Tum Fiyatlarin Ortalamasi: {ortalamaFiyat:C}");
+            Console.WriteLine($"Ortalama Fiyat: {ortalamaFiyat:C}");
         }
     }
 }

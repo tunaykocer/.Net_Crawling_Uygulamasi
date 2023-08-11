@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Classes\FileOperations.cs" />
     <Compile Include="Classes\Ilan.cs" />
-    <Compile Include="Classes\SahibindenScrapper.cs" />
+    <Compile Include="Classes\Class1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

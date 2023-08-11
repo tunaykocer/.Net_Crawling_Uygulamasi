@@ -9,3 +9,14 @@ C:\Users\ev\OneDrive\Masaüstü\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawling
 C:\Users\ev\OneDrive\Masaüstü\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.csproj.CopyComplete
 C:\Users\ev\OneDrive\Masaüstü\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.exe
 C:\Users\ev\OneDrive\Masaüstü\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.pdb
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\bin\Debug\crawlingapp_tk.exe.config
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\bin\Debug\crawlingapp_tk.exe
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\bin\Debug\crawlingapp_tk.pdb
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\bin\Debug\HtmlAgilityPack.dll
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\bin\Debug\HtmlAgilityPack.xml
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.csproj.AssemblyReference.cache
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.csproj.CoreCompileInputs.cache
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.csproj.CopyComplete
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.exe
+C:\Users\ev\OneDrive\Belgeler\GitHub\.Net_Crawling_Uygulamasi\crawlingapp_tk\crawlingapp_tk\obj\Debug\crawlingapp_tk.pdb
