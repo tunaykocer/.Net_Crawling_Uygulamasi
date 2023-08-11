@@ -68,8 +68,8 @@ namespace tunay_crawling
                         }
                         Console.WriteLine("---------------------------------------------------");
                     }
-                    // StreamWriter nesnesi kapatılıyor
-                    outputFile.Close();
+                // StreamWriter nesnesi kapatılıyor / ilanlar.txt dosyası icin
+                outputFile.Close();
                 }
 
                 return ilanlar;
