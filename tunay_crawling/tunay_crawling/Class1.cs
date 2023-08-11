@@ -46,7 +46,7 @@ namespace tunay_crawling
 
                     // Yeniden deneme yapılacağına dair mesaj yazdırılıyor
 
-                    Console.WriteLine($"Tekrar ({denemesayisi + 1}/{deneme})...");
+                    Console.WriteLine($"Tekrar ({denemesayisi + 1}/{deneme}).");
 
                     // Deneme sayısı arttırma
 
