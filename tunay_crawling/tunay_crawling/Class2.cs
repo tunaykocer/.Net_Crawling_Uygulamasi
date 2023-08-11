@@ -38,7 +38,7 @@ namespace tunay_crawling
                         var name = vitrin.ParentNode.SelectSingleNode("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]/p");
                         if (name != null)
                         {
-                            string ilanName = name.InnerText.TrimEnd('.', ' ', '\n', '\r', '\t', '\0'); //metnin sonundaki gereksiz boşlukları ve karakterleri temizlemesi icin yapılan islem
+                            string ilanName = name.InnerText.TrimEnd('.', ' ', '\n', '\r', '\t', '\0'); //metnin sağ tarafındaki(sonundaki) gereksiz boşlukları satırbaşı ve null karakterleri temizlemesi icin yapılan islem
                             Console.WriteLine("İlanAdı: " + ilanName);
                             outputFile.WriteLine("İlan Adı: " + ilanName);
                         }
