@@ -52,9 +52,6 @@ namespace tunay_crawling
 
                     denemesayisi++;
 
-                    // 3 saniye bekleme islemi
-
-                    Thread.Sleep(3000);
                 }
             }
             // İstenilen sayıda tekrar denemeden sonra hata olursa exception atar..
