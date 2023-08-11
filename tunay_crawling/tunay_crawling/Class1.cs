@@ -41,22 +41,18 @@ namespace tunay_crawling
                 catch (Exception except)
                 {
                     // Hata mesajı yazdırılıyor
-
                     Console.WriteLine($"Hata oluştu: {except.Message}");  //except ifadesini kullanabilmek için '$' bu işaret kullanılmalı
 
                     // Yeniden deneme yapılacağına dair mesaj yazdırılıyor
-
                     Console.WriteLine($"Tekrar ({denemesayisi + 1}/{deneme})");
 
                     // Deneme sayısı arttırma
-
                     denemesayisi++;
 
                 }
             }
             // İstenilen sayıda tekrar denemeden sonra hata olursa exception atar..
-
-            throw new Exception($"Web isteği {deneme} defa başarılamadı");
+            throw new Exception($"Bu {deneme} defa başarılamadı");
         }
     }
 }
