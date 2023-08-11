@@ -55,8 +55,8 @@ namespace tunay_crawling
                             double ilanFiyati;
                             if (double.TryParse(fiyatBilgi, NumberStyles.Float, CultureInfo.InvariantCulture, out ilanFiyati))
                             {
-                                Console.WriteLine("Fiyat: " + ilanFiyati.ToString("#.###"));
-                                outputFile.WriteLine("Fiyat: " + ilanFiyati.ToString("#.###"));
+                                Console.WriteLine("Fiyat: " + ilanFiyati.ToString("#.##")); //sayıyı virgülden sonra iki basamağa kadar göstermek için kullanılan islem
+                                outputFile.WriteLine("Fiyat: " + ilanFiyati.ToString("#.##"));
                                 string ilanName = Regex.Replace(name.InnerText, @"[\n\r\t]+", "").TrimEnd('.', ' ');// metnin sonundaki noktaları ve boşlukları kaldırıp daha düzenli bir hale getirme islemi
                                 ilanlar.Add(new Ilan(ilanName, ilanFiyati));
 
