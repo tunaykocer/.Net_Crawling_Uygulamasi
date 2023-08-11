@@ -20,7 +20,7 @@ namespace tunay_crawling
             // Siteden ilan URL'lerini alma islemi
             List<string> ilanUrls = await Class1.GetIlanUrlsAsync();
             Console.WriteLine("ilan bilgileri getiriliyor");
-            Console.Write("Yukleniyor");
+            Console.Write("Bilgiler Getiriliyor....");
 
             Console.WriteLine("******Basarili******");
 
