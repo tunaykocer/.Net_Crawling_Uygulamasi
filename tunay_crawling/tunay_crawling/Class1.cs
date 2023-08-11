@@ -13,18 +13,18 @@ namespace tunay_crawling
         public static async Task<List<string>> GetIlanUrlsAsync()
         {
             HtmlWeb web = new HtmlWeb();
-            int maxRetries = 5; // İsteği en fazla 5 kez tekrar deneyecek
-            int retryCount = 0;// Şu ana kadar yapılan deneme sayısı
-            while (retryCount < maxRetries)
+            int deneme = 2; //  en fazla 2 kez tekrar deneyecek
+            int denemesayisi = 0;// Şu ana kadar yapılan deneme sayısı
+            while (denemesayisi < deneme)
             {
                 try
                 {
                     HtmlDocument doc = await web.LoadFromWebAsync("https://www.arabam.com");
-                    // ilanUrls adında bir List<string> nesnesi tanımlanıyor
-                    var ilanUrls = new List<string>();
-                    // XPath ifadesiyle belirtilen ilanlar div elementlerinin linkleri toplanıyor
+                    
+                    var ilanUrls = new List<string>(); // ilanUrls adında bir List<string> nesnesi tanımlanıyor
 
-                    var divs = doc.DocumentNode.SelectNodes("//*[@id=\"wrapper\"]/div/div/div/div/div/div/div/div/div/div[1]/a");
+                    var divs = doc.DocumentNode.SelectNodes("//*[@id=\"wrapper\"]/div/div/div/div/div/div/div/div/div/div[1]/a");// XPath ifadesiyle belirtilen ilanlar div elementlerinin linkleri toplanıyor
+
                     // Toplanan her bir link ilanUrls listesine ekleniyor
                     foreach (var div in divs)
                     {
@@ -42,24 +42,24 @@ namespace tunay_crawling
                 {
                     // Hata mesajı yazdırılıyor
 
-                    Console.WriteLine($"Hata oluştu: {except.Message}");
+                    Console.WriteLine($"Hata oluştu: {except.Message}");  //except ifadesini kullanabilmek için '$' bu işaret kullanılmalı
 
                     // Yeniden deneme yapılacağına dair mesaj yazdırılıyor
 
-                    Console.WriteLine($"Tekrar ({retryCount + 1}/{maxRetries})...");
+                    Console.WriteLine($"Tekrar ({denemesayisi + 1}/{deneme})...");
 
-                    // Deneme sayısı arttırılıyor
+                    // Deneme sayısı arttırma
 
-                    retryCount++;
+                    denemesayisi++;
 
-                    // 3 saniye bekletiliyor
+                    // 3 saniye bekleme islemi
 
                     Thread.Sleep(3000);
                 }
             }
-            // İstenilen sayıda tekrar denemeden sonra bile başarısızlık yaşanırsa bir Exception fırlatılıyor.
+            // İstenilen sayıda tekrar denemeden sonra hata olursa exception atar..
 
-            throw new Exception($"Web isteği {maxRetries} defa başarılamadı");
+            throw new Exception($"Web isteği {deneme} defa başarılamadı");
         }
     }
 }

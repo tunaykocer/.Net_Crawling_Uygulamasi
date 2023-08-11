@@ -17,21 +17,15 @@ namespace tunay_crawling
     {
         static async Task Main(string[] args)
         {
-            // Arabam.com'dan ilan URL'lerini al
+            // Siteden ilan URL'lerini alma islemi
             List<string> ilanUrls = await Class1.GetIlanUrlsAsync();
-            Console.WriteLine("https://www.arabam.com/ Vitrin Bolumu ilan bilgileri getiriliyor");
+            Console.WriteLine("ilan bilgileri getiriliyor");
             Console.Write("Yukleniyor");
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.Write("~");
-                Thread.Sleep(200);
-            }
-
-            Console.WriteLine("Basarili!");
+            Console.WriteLine("******Basarili******");
 
 
-            // Tüm ilanlar için sırayla bilgi al ve ilanlar listesine ekle
+            // Tüm ilanlar için sırayla bilgi alıp , ilanlar listesine ekleme islemi
 
             List<Ilan> ilanlar = new List<Ilan>();
 
@@ -41,13 +35,13 @@ namespace tunay_crawling
                 ilanlar.AddRange(ilanList);
             }
 
-            // İlan listeslerinin tamamı listelenirse ortalama  ve toplam fiyatı ekrana yazdırma islemi
+            // İlan listelerinin tamamı listelenirse ortalama  ve toplam fiyatı ekrana yazdırma islemi
             if (ilanlar.Count > 0)
             {
-                double totalPrice = ilanlar.Sum(ilan => ilan.Fiyat);
-                double averagePrice = totalPrice / ilanlar.Count;
-                Console.WriteLine("Average Price: " + averagePrice.ToString("#.###"));
-                Console.WriteLine("Total Prices: " + totalPrice.ToString("#.###"));
+                double toplamfiyat = ilanlar.Sum(ilan => ilan.Fiyat);
+                double ortalamafiyat = toplamfiyat / ilanlar.Count;
+                Console.WriteLine("Ortalama Fiyat: " + ortalamafiyat.ToString("#.###"));
+                Console.WriteLine("Toplam Fiyat: " + toplamfiyat.ToString("#.###"));
                 Console.ReadKey();
             }
         }

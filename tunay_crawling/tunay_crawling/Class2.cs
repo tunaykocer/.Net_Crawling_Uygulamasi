@@ -17,8 +17,8 @@ namespace tunay_crawling
     {
         public static async Task<List<Ilan>> GetIlanAsync(string url)
         {
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = await web.LoadFromWebAsync(url);
+            HtmlWeb web = new HtmlWeb();//web sayfası icin
+            HtmlDocument doc = await web.LoadFromWebAsync(url);//urlden web içeriğini çekip , işlemek için HtmlDocument nesnesine yüklüyor.
 
             List<Ilan> ilanlar = new List<Ilan>();
 
@@ -30,8 +30,7 @@ namespace tunay_crawling
             using (StreamWriter outputFile = new StreamWriter("ilanlar.txt", true))
             {
                 // Seçilen her bir ilan için aşağıdaki işlemler yapılıyor
-                if (vtrn != null)
-                {
+                
                     foreach (var vitrin in vtrn)
                     {
                         // İlanın ismi seçiliyor ve yazdırılıyor
@@ -39,7 +38,7 @@ namespace tunay_crawling
                         var name = vitrin.ParentNode.SelectSingleNode("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]/p");
                         if (name != null)
                         {
-                            string ilanName = name.InnerText.TrimEnd('.', ' ', '\n', '\r', '\t', '\0');
+                            string ilanName = name.InnerText.TrimEnd('.', ' ', '\n', '\r', '\t', '\0'); //metnin sonundaki gereksiz boşlukları ve karakterleri temizlemesi icin yapılan islem
                             Console.WriteLine("İlanAdı: " + ilanName);
                             outputFile.WriteLine("İlan Adı: " + ilanName);
                         }
@@ -49,16 +48,16 @@ namespace tunay_crawling
                         if (fiyatt != null)
                         {
                             string fiyatBilgi = fiyatt.InnerText.Trim().Replace("TL", "").Replace(".", "");
-                            fiyatBilgi = fiyatBilgi.Replace(".", ""); // Nokta karakterini kaldır
+                            fiyatBilgi = fiyatBilgi.Replace(".", ""); // Nokta ve boşluğu kaldırma islemi
 
 
                             // İlandaki fiyatı yazdırma islemi
                             double ilanFiyati;
                             if (double.TryParse(fiyatBilgi, NumberStyles.Float, CultureInfo.InvariantCulture, out ilanFiyati))
                             {
-                                Console.WriteLine("Price: " + ilanFiyati.ToString("#.###"));
-                                outputFile.WriteLine("Price: " + ilanFiyati.ToString("#.###"));
-                                string ilanName = Regex.Replace(name.InnerText, @"[\n\r\t]+", "").TrimEnd('.', ' ');
+                                Console.WriteLine("Fiyat: " + ilanFiyati.ToString("#.###"));
+                                outputFile.WriteLine("Fiyat: " + ilanFiyati.ToString("#.###"));
+                                string ilanName = Regex.Replace(name.InnerText, @"[\n\r\t]+", "").TrimEnd('.', ' ');// metnin sonundaki noktaları ve boşlukları kaldırıp daha düzenli bir hale getirme islemi
                                 ilanlar.Add(new Ilan(ilanName, ilanFiyati));
 
                             }
@@ -78,4 +77,3 @@ namespace tunay_crawling
 
         }
     }
-}
