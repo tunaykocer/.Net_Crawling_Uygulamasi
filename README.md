@@ -1,7 +1,7 @@
 # .Net_Crawling_Uygulamasi
 .
 
-Bu projemde HtmlAgilityPack kütüphanesini(paketini) proje içinden NuGet paketten indirerek ekledim.<br/>
+*Bu projemde HtmlAgilityPack kütüphanesini(paketini) proje içinden NuGet paketten indirerek ekledim.<br/>
 *arabam.com sitesinden araba ilan isimlerini ,fiyatlarını ve en sonda tüm ilanların fiyat ortalamalarını console da gösteren bir proje yaptım.<br/>
 * URL'den belgeleri çekiyor . XPath kodu ile ilanda olan ilanın adı ve fiyatını alıyor , projede gerekli yere ekledim.<br/>
 *Sitede listelenen ilanların adı ve fiyatı gösterilir ve  ad ve fiyat bilgilerini "ilanlar.txt" adlı bir metin dosyasına kaydeder.<br/>
