@@ -3,7 +3,7 @@
 
 Bu projemde HtmlAgilityPack kütüphanesini(paketini) proje içinden NuGet paketten indirerek ekledim.<br/>
 *arabam.com sitesinden araba ilan isimlerini ,fiyatlarını ve en sonda tüm ilanların fiyat ortalamalarını console da gösteren bir proje yaptım.<br/>
-*HtmlWeb kullanarak URL'den belgeleri çekiyor . XPath kodu ile ilanda olan ilanın adı ve fiyatını alıyor , projede gerekli yere ekledim.<br/>
+* URL'den belgeleri çekiyor . XPath kodu ile ilanda olan ilanın adı ve fiyatını alıyor , projede gerekli yere ekledim.<br/>
 *Sitede listelenen ilanların adı ve fiyatı gösterilir ve  ad ve fiyat bilgilerini "ilanlar.txt" adlı bir metin dosyasına kaydeder.<br/>
 *Proje çalıştıktan sonra konsol ekranındaki ilan adı , fiyatı ve ortalama fiyatı bilgileri aynı anda ilanlar.txt dosyasınada kaydedilmiştir. 2 ekranında resmini aşağıda görebilirsiniz.<br/>
 *Not: Program.cs dısındaki 3 kod sayfam Classes adlı klasörün içindedir. <br/>
