@@ -33,7 +33,7 @@ namespace crawlingapp_tk.Classes
 
             foreach (var ilanNode in vitrin_ilanlar)
             {
-                var ilanLink = ilanNode.SelectSingleNode("//*[@id=\"wrapper\"]/div[2]/div[3]/div/div[1]").Attributes["href"].Value;
+                var ilanLink = ilanNode.Attributes["href"].Value;
                 ilanlarList.Add(new Ilan { IlanDetayUrl = $"{_baseUrl}{ilanLink}" });
             }
 
